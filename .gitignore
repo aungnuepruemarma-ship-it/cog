@@ -27,3 +27,6 @@ env/
 # OS
 .DS_Store
 Thumbs.db
+
+# Kaggle account-specific push metadata (local only)
+kernel-metadata.json
