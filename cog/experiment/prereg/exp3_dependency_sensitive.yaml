@@ -1,0 +1,68 @@
+# Exp3 — Dependency-Sensitive Planning Preregistration
+# ============================================================
+# STATUS: BLOCKED. The experiment DEFINITION exists. The experiment
+# ITSELF does not. Do not generate a corpus or run anything until all
+# blocking_preconditions are true and status is flipped to READY.
+#
+# This file is FROZEN on creation. It must not be edited to "fit" a
+# result. Changing the hypothesis, metrics, or decision rule after the
+# fact invalidates the preregistration.
+
+experiment_id: exp3_dependency_sensitive
+schema_version: 1
+
+status: BLOCKED
+
+research_question: >
+  Does dependency-aware hierarchical planning improve execution
+  when the runtime exposes real data dependencies?
+
+hypothesis: >
+  HTN/dependency planning reduces dependency violations and improves
+  verified task completion compared with flat planning.
+
+blocking_preconditions:
+  - FlatPlanner implementation exists
+  - HTNPlanner implementation exists
+  - dependency-sensitive execution runtime exists
+  - frozen task corpus exists
+
+baseline:
+  name: FlatPlanner
+  status: IMPLEMENTED
+  module: cog.experiment.planners.flat
+  behavior_hash: a58f89c2d5b4ed50
+  contract:
+    - linear plans only
+    - no hierarchy
+    - no decomposition
+    - no dependency graph
+    - no lookahead
+    - no recovery policy
+    - deterministic given identical adapter output
+
+treatment:
+  name: HTNPlanner
+  status: NOT_IMPLEMENTED
+
+metrics:
+  primary:
+    - verified_rate
+  secondary:
+    - dependency_violations
+    - execution_cost
+    - action_count
+    - recovery_rate
+
+decision_rule:
+  improvement_requires:
+    - predefined effect threshold
+    - confidence interval excludes zero
+
+seed: 20260716
+
+validity_constraints:
+  - planners receive identical goals
+  - same executor
+  - same verifier
+  - no planner-specific tasks

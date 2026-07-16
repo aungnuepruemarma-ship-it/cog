@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Artifacts
+*.db
+*.db-wal
+*.db-shm
+*.log
+broadval.log
+results.json
+_eval_snapshot/
+_reg/
+governance_data/
+cog/evaluation/versions/*/artifacts/
+
+# Environment
+.venv/
+venv/
+env/
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
