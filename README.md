@@ -72,6 +72,13 @@ After the notebook is set up once, rerunning is just: open the notebook and
 click **Run All**. Each run clones the latest code, installs dependencies, and
 executes the benchmark automatically.
 
+### Ready-to-import notebook
+
+A prebuilt notebook is included: [`kaggle_cog_benchmark.ipynb`](kaggle_cog_benchmark.ipynb).
+On Kaggle: **New Notebook → File → Import Notebook**, upload it, then
+**Run All**. It clones the repo, runs setup + benchmark, and prints the
+headline results from `/kaggle/working/results.json`.
+
 ## Notes
 
 - The `cog` package is **pure standard library** — no third-party runtime
